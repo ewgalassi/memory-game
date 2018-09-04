@@ -1,0 +1,39 @@
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    font-size: 20px;
+    color: black;
+}
+
+.dot {
+    position: relative;
+    left: 25%;
+    background: blue;
+    border: 1px solid yellow;
+    border-radius: 20px;
+    padding: 40px;
+    margin: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.dot:hover {
+    background: purple;
+}
+
+.dot:focus {
+    background: red;
+}
+
+.dot:active {
+    background: green;
+}
+
+img {
+    position: relative;
+    top: 20px;
+    width: 50px;
+    height: 60px;
+}
