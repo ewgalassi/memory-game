@@ -3,6 +3,7 @@ $(document).ready(() => {
 
     var clicked = false;
     var selected;
+    var selected2;
 
     function makeGrid() {
         for (i = 0; i < 4; i++) {
@@ -15,7 +16,7 @@ $(document).ready(() => {
                 row += "data-id='" + image + "'>";
                 row += "</a>";
             }
-            row += "</div><br><br><br><br>";
+            row += "</div>";
             $("#grid").append(row);
         }
     };
@@ -121,8 +122,8 @@ $(document).ready(() => {
         console.log(selected);
     };
 
-    function hidePic(target) {
-        $(target).empty();
+    function hidePic() {
+        $("[data-id=" + selected2 + "]").empty();
         $("[data-id=" + selected + "]").empty();
         clicked = false;
         selected = "";
@@ -134,8 +135,9 @@ $(document).ready(() => {
         }
         else if (clicked) {
             if ($(this).attr("data-id") != selected) {
+                selected2 = $(this).attr("data-id");
                 wrongPic(this);
-                setTimeout(hidePic(this), 1000);
+                setTimeout(hidePic, 1200);
             }
             else {
                 revealPic(this);

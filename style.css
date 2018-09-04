@@ -1,4 +1,6 @@
-
+* {
+    box-sizing: border-box;
+}
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -7,24 +9,26 @@ body {
     color: black;
 }
 
+.row {
+    margin-top: 10px;
+    height: 120px;
+    display: flex;
+}
+
 .dot {
     position: relative;
     left: 25%;
     background: blue;
-    border: 1px solid yellow;
+    border: 2px solid rgb(30, 255, 0);
     border-radius: 20px;
     padding: 40px;
     margin: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    height: 120px;
+    width: 100px;
 }
 
 .dot:hover {
     background: purple;
-}
-
-.dot:focus {
-    background: red;
 }
 
 .dot:active {
@@ -33,7 +37,11 @@ body {
 
 img {
     position: relative;
-    top: 20px;
-    width: 50px;
-    height: 60px;
+    bottom: 28px;
+    right: 28px;
+    width: 70px;
+    height: 90px;
+    border-radius: 10px;
+    margin: 0px;
+    padding: 0px;
 }
