@@ -4,6 +4,7 @@ $(document).ready(() => {
     var clicked = false;
     var selected;
     var selected2;
+    var readyForNext = true;
 
     function makeGrid() {
         for (i = 0; i < 4; i++) {
@@ -127,16 +128,18 @@ $(document).ready(() => {
         $("[data-id=" + selected + "]").empty();
         clicked = false;
         selected = "";
+        readyForNext = true;
     }
 
     $(".dot").on("click", function () {
-        if (!clicked) {
+        if (!clicked && readyForNext) {
             revealPic(this);
         }
-        else if (clicked) {
+        else if (clicked && readyForNext) {
             if ($(this).attr("data-id") != selected) {
                 selected2 = $(this).attr("data-id");
                 wrongPic(this);
+                readyForNext = false;
                 setTimeout(hidePic, 1200);
             }
             else {
