@@ -45,3 +45,20 @@ img {
     margin: 0px;
     padding: 0px;
 }
+
+@media screen and (max-width: 980px) {
+    .row {
+        height: 150px;
+    }
+
+    .dot {
+        left: 10%;
+        height: 150px;
+        width: 120px;
+    }
+
+    img {
+        height: 120px;
+        width: 90px;
+    }
+}
