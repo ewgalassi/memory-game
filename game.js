@@ -14,7 +14,7 @@ $(document).ready(() => {
                 var image = pairs[selection];
                 pairs.splice(selection, 1);
                 row += "<a class='dot' ";
-                row += "data-id='" + image + "'>";
+                row += "data-id='" + image + "' data-clicked=false>";
                 row += "</a>";
             }
             row += "</div>";
@@ -126,16 +126,19 @@ $(document).ready(() => {
     function hidePic() {
         $("[data-id=" + selected2 + "]").empty();
         $("[data-id=" + selected + "]").empty();
+        $("[data-id=" + selected + "]").attr("data-clicked", "false");
         clicked = false;
         selected = "";
+        selected2 = "";
         readyForNext = true;
     }
 
     $(".dot").on("click", function () {
-        if (!clicked && readyForNext) {
+        if (!clicked && readyForNext && $(this).attr("data-clicked") == "false") {
             revealPic(this);
+            $(this).attr("data-clicked", true);
         }
-        else if (clicked && readyForNext) {
+        else if (clicked && readyForNext && $(this).attr("data-clicked") == "false") {
             if ($(this).attr("data-id") != selected) {
                 selected2 = $(this).attr("data-id");
                 wrongPic(this);
@@ -144,8 +147,12 @@ $(document).ready(() => {
             }
             else {
                 revealPic(this);
+                $(this).attr("data-clicked", true);
+                $("[data-id=" + selected2 + "]").attr("data-id", null);
+                $("[data-id=" + selected + "]").attr("data-id", null);
                 clicked = false;
                 selected = "";
+                selected2 = "";
             }
         }
     })
