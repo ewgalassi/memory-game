@@ -5,6 +5,7 @@ $(document).ready(() => {
     var selected;
     var selected2;
     var readyForNext = true;
+    var counter = 0;
 
     function makeGrid() {
         for (i = 0; i < 4; i++) {
@@ -127,6 +128,9 @@ $(document).ready(() => {
         $("[data-id=" + selected2 + "]").empty();
         $("[data-id=" + selected + "]").empty();
         $("[data-id=" + selected + "]").attr("data-clicked", "false");
+    }
+
+    function clearSelected() {
         clicked = false;
         selected = "";
         selected2 = "";
@@ -136,7 +140,7 @@ $(document).ready(() => {
     $(".dot").on("click", function () {
         if (!clicked && readyForNext && $(this).attr("data-clicked") == "false") {
             revealPic(this);
-            $(this).attr("data-clicked", true);
+            $(this).attr("data-clicked", "true");
         }
         else if (clicked && readyForNext && $(this).attr("data-clicked") == "false") {
             if ($(this).attr("data-id") != selected) {
@@ -144,16 +148,20 @@ $(document).ready(() => {
                 wrongPic(this);
                 readyForNext = false;
                 setTimeout(hidePic, 1200);
+                setTimeout(clearSelected, 1220);
             }
             else {
                 revealPic(this);
-                $(this).attr("data-clicked", true);
-                $("[data-id=" + selected2 + "]").attr("data-id", null);
-                $("[data-id=" + selected + "]").attr("data-id", null);
+                $(this).attr("data-clicked", "true");
                 clicked = false;
                 selected = "";
                 selected2 = "";
+                counter++;
+                if (counter === 10) {
+                    alert("You won!");
+                    location.reload();
+                }
             }
         }
-    })
+    });
 });
