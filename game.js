@@ -61,6 +61,11 @@ $(document).ready(() => {
             selected = "truck";
             clicked = true;
         }
+        // if ($(target).attr("data-id") == "acorn") {
+        //     $(target).html("<img src='images/acorn.png'>");
+        //     selected = "acorn";
+        //     clicked = true;
+        // }
         if ($(target).attr("data-id") == "acorn") {
             $(target).html("<img src='images/acorn.png'>");
             selected = "acorn";
@@ -108,9 +113,13 @@ $(document).ready(() => {
             $(target).html("<img src='images/truck.jpg'>");
             clicked = true;
         }
+        // if ($(target).attr("data-id") == "acorn") {
+        //     $(target).html("<img src='images/acorn.png'>");
+        //     selected = "acorn";
+        //     clicked = true;
+        // }
         if ($(target).attr("data-id") == "acorn") {
             $(target).html("<img src='images/acorn.png'>");
-            selected = "acorn";
             clicked = true;
         }
         if ($(target).attr("data-id") == "lego") {
